@@ -14,12 +14,18 @@ private:
 	string name;
 	int age;
 public:
-	Person() { name = "", age = 0; }
+	vector<int>* marks;
+
+	Person() { 
+		name = "", 
+		age = 0; 
+	}
 
 	Person(const Person& other)
 	{
 		name = other.name;
 		age = other.age;
+		marks = other.marks;
 	}
 
 	Person(string name, int age)
@@ -33,6 +39,17 @@ public:
 		cout << name << " : " << age << endl;
 	}
 };
+
+void TryConstructors() {
+
+	Person p1 = Person("Vincent", 22);
+
+	vector<int> allmarks = vector<int>(4, 4);
+	p1.marks = &allmarks;
+	allmarks = vector<int>(5, 5);
+	Person p2 = p1;
+}
+
 
 void tryVector()
 // een vector als argument van een functie kopiert de gehele vector eerst,
@@ -179,5 +196,6 @@ int main()
 	//tryMap();
 	//CustomMap();
 	//Multimap();
+	TryConstructors();
 
 }

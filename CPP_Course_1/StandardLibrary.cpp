@@ -35,6 +35,9 @@ public:
 };
 
 void tryVector()
+// een vector als argument van een functie kopiert de gehele vector eerst,
+// als de lijst niet gemodified hoeft te worden kan er beter pass by reference gebruikt worden
+// print(const vector<int>& v);
 {
 	//presize vector door (x) (kan, hoeft niet)
 	vector<string> strings;
@@ -175,5 +178,6 @@ int main()
 	//tryList();
 	//tryMap();
 	//CustomMap();
-	Multimap();
+	//Multimap();
+
 }

@@ -4,8 +4,35 @@
 #include <iostream>
 #include <list>
 #include <map>
+#include <algorithm>
 //vector is resizable
-using namespace  std;
+using namespace std;
+
+class Person
+{
+private:
+	string name;
+	int age;
+public:
+	Person() { name = "", age = 0; }
+
+	Person(const Person& other)
+	{
+		name = other.name;
+		age = other.age;
+	}
+
+	Person(string name, int age)
+	{
+		this->name = name;
+		this->age = age;
+	}
+
+	void print()
+	{
+		cout << name << " : " << age << endl;
+	}
+};
 
 void tryVector()
 {
@@ -16,7 +43,7 @@ void tryVector()
 	strings.push_back("asdf");
 	strings.push_back("sdfg");
 
-	for(int i=0; i<strings.size(); i++)
+	for (int i = 0; i < strings.size(); i++)
 	{
 		cout << strings[i] << endl;
 	}
@@ -25,29 +52,27 @@ void tryVector()
 	{
 		cout << *it << endl;
 	}*/
-
 }
+
 void MultidimentionalVector()
 {
-	vector<vector<int> > grid(3,vector<int>(4,0));
+	vector<vector<int>> grid(3, vector<int>(4, 0));
 
 	grid[1].push_back(8);
 
-	for(int row = 0; row < grid.size(); row ++)
+	for (int row = 0; row < grid.size(); row++)
 	{
-		string a= "";
+		string a = "";
 
-		for(int col =0; col < grid[row].size(); col++)
+		for (int col = 0; col < grid[row].size(); col++)
 		{
 			grid[row][col] = col * 12;
 			a += std::to_string(grid[row][col]);
 		}
 		cout << a << endl;
 	}
-
 }
 
-// double linked list
 void tryList()
 {
 	list<int> numbers;
@@ -68,7 +93,6 @@ void tryList()
 			it = numbers.erase(it);
 		else
 			++it;
-
 	}
 	for (list<int>::iterator it = numbers.begin(); it != numbers.end(); ++it)
 	{
@@ -84,7 +108,7 @@ void tryMap()
 	ages["Mike"] = 40;
 	ages["Jan"] = 100;
 	ages["Bart"] = 22;
-	pair<string, int> vincentAge = { "Vincent", 23 };
+	pair<string, int> vincentAge = {"Vincent", 23};
 
 	ages.insert(vincentAge);
 
@@ -95,22 +119,61 @@ void tryMap()
 	}
 
 
-	for(map<string, int>::iterator it = ages.begin(); it != ages.end(); ++it)
+	for (map<string, int>::iterator it = ages.begin(); it != ages.end(); ++it)
 	{
-		cout << it ->first << " is" << it ->second << endl;
+		cout << it->first << " is" << it->second << endl;
 	}
 
-	if(ages.find("Vicky")!= ages.end())
+	if (ages.find("Vicky") != ages.end())
 	{
 		//checken of er een item in de map aanwezig is
 	}
 }
 
+void CustomMap()
+{
+	map<int, Person> people;
+
+	people[0] = Person("Vincent", 22);
+	people[1] = Person("Bart", 40);
+	people[2] = Person("Paul", 100);
+
+	for (map<int, Person>::iterator it = people.begin(); it != people.end(); ++it)
+	{
+		cout << it->first << " : ";
+		it->second.print();
+	}
+}
+
+void Multimap()
+{
+	multimap<int, string> lookup;
+
+	lookup.insert(make_pair(30, "Vincent"));
+	lookup.insert(make_pair(22, "yergtt"));
+	lookup.insert(make_pair(45, "ASDF"));
+
+	//multimap allows for duplicate keys
+	for (multimap<int, string>::iterator it = lookup.begin(); it != lookup.end(); ++it)
+	{
+		cout << it->first << " : " << it->second << endl;
+	}
+
+	//to find a range of elements with the 
+	pair<multimap<int, string>::iterator, multimap<int, string>::iterator> its = lookup.equal_range(30);
+	for (multimap<int, string>::iterator it = its.first; it != its.second; ++it)
+	{
+		// 
+	}
+
+}
 
 int main()
-{	
+{
 	//tryVector();
 	//MultidimentionalVector();
 	//tryList();
-	tryMap();
+	//tryMap();
+	//CustomMap();
+	Multimap();
 }

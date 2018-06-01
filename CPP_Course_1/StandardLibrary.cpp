@@ -5,6 +5,7 @@
 #include <list>
 #include <map>
 #include <algorithm>
+#include <set>
 //vector is resizable
 using namespace std;
 
@@ -25,7 +26,7 @@ public:
 	{
 		name = other.name;
 		age = other.age;
-		marks = other.marks;
+		marks =  new vector<int>(*other.marks);
 	}
 
 	Person(string name, int age)
@@ -38,7 +39,22 @@ public:
 	{
 		cout << name << " : " << age << endl;
 	}
+
+	/*bool operator< (const Person& other) const {
+		if (name == other.name)
+			return age < other.age;
+		return name < other.name;
+	}*/
+
+	// mag private members gebruiken
+	friend bool comp(const Person& a, const Person& b);
 };
+
+bool comp(const Person& a, const Person& b) {
+	if (a.name == b.name)
+		return a.age < b.age;
+	return a.name < b.name;
+}
 
 void TryConstructors() {
 
@@ -46,8 +62,9 @@ void TryConstructors() {
 
 	vector<int> allmarks = vector<int>(4, 4);
 	p1.marks = &allmarks;
-	allmarks = vector<int>(5, 5);
 	Person p2 = p1;
+
+	allmarks = vector<int>(5, 5);
 }
 
 
@@ -188,7 +205,28 @@ void Multimap()
 
 }
 
-int main()
+void trySet(){
+	set<int> set;
+	set.insert(4);
+	set.insert(3);
+	set.insert(1);
+
+	for (auto const &value : set) {
+		cout << value << endl;
+	}
+}
+
+void TrySort() {
+	vector<Person> persons;
+
+	persons.push_back(Person("Vincent", 20));
+	persons.push_back(Person("A", 12));
+	persons.push_back(Person("X", 23));
+
+	sort(persons.begin(), persons.end(), comp);
+}
+
+int main4()
 {
 	//tryVector();
 	//MultidimentionalVector();
@@ -196,6 +234,10 @@ int main()
 	//tryMap();
 	//CustomMap();
 	//Multimap();
-	TryConstructors();
+	//TryConstructors();
+	//trySet();
 
+	//werkt niet
+	//TrySort();
+	return 0;
 }

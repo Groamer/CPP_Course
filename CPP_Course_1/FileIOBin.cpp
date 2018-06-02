@@ -44,7 +44,6 @@ void ReadPersonsFromFile()
 		if (input.eof())
 			input.close();
 	}
-	
 }
 
 int main3()

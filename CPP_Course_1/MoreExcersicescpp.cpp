@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "Complex.h"
+#include "TestTemplate.h"
 
 using namespace std;
 using namespace complexNumbers;
@@ -42,5 +43,8 @@ int main() {
 	Complex c1(10, 12);
 	Complex c2(2, 3);
 	Complex c3 = c1 + c2;
-	//cout << c1 << endl;
+
+	TestTemplate<string> t("hello");
+	t.print();
+	return 0;
 }

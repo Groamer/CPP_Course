@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include "Complex.h"
-#include "TestTemplate.h"
+#include "Template.h"
 
 using namespace std;
 using namespace complexNumbers;
@@ -37,14 +37,14 @@ ostream& operator<<(ostream &os, const Test &test) {
 }
 
 int main() {
-	Test test1(10, "Vincent");
-	cout << test1 << endl;
+	//Test test1(10, "Vincent");
+	//cout << test1 << endl;
 
-	Complex c1(10, 12);
-	Complex c2(2, 3);
-	Complex c3 = c1 + c2;
+	//Complex c1(10, 12);
+	//Complex c2(2, 3);
+	//Complex c3 = c1 + c2;
 
-	TestTemplate<string> t("hello");
+	Template<int> t(5);
 	t.print();
 	return 0;
 }

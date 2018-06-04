@@ -101,7 +101,7 @@ void MultidimentionalVector()
 	{
 		string a = "";
 
-		for (int col = 0; col < grid[row].size(); col++)
+		for (auto col = 0; col < grid[row].size(); col++)
 		{
 			grid[row][col] = col * 12;
 			a += std::to_string(grid[row][col]);

@@ -158,6 +158,7 @@
     <ClCompile Include="Exceptions.cpp" />
     <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="FileIOBin.cpp" />
+    <ClCompile Include="Huffman.cpp" />
     <ClCompile Include="MoreExcersicescpp.cpp" />
     <ClCompile Include="MyException.cpp" />
     <ClCompile Include="StandardLibrary.cpp" />

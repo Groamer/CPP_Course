@@ -36,7 +36,7 @@ ostream& operator<<(ostream &os, const Test &test) {
 	return os << test.id << " : " << test.name;
 }
 
-int main() {
+int main5() {
 	//Test test1(10, "Vincent");
 	//cout << test1 << endl;
 

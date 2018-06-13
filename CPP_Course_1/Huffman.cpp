@@ -141,7 +141,7 @@ void HuffmanCodes(char data[], int freq[], int size)
 }
 
 // Driver program to test above functions
-int main()
+int main8()
 {
 
 	char arr[] = { 'a', 'b', 'c', 'd', 'e', 'f' };

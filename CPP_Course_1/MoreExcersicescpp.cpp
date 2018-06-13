@@ -3,6 +3,7 @@
 #include <string>
 #include "Complex.h"
 #include "Template.h"
+#pragma once
 
 using namespace std;
 using namespace complexNumbers;
@@ -12,7 +13,7 @@ private:
 	int id;
 	string name;
 public:
-	Test() :id(0), name("") {}
+	Test() :id(0), name("name") {}
 
 	Test(int id, string name) : id(id), name(name) {}
 
@@ -25,6 +26,7 @@ public:
 		
 		return *this;
 	}
+	void setName(string name) { this->name = name; }
 	void  print() const {
 		cout << "id: " << id << " name: " << name << endl;
 	}
@@ -57,24 +59,27 @@ void swap(int &a, int &b) {
 }
 
 
-int main8() {
-	//Test test1(10, "Vincent");
-	//cout << test1 << endl;
+int main() {
+	Test *test1 = new Test(13, "test1");
+	cout << *test1 << endl; 
 
-	Complex c1(10, 12);
-	Complex c2(2, 3);
-	Complex c3 = c1 + c2;
+	Test test2 = Test(12, "test");
+	test2.print();
 
-	cout << c3 << endl;
+	//Complex c1(10, 12);
+	//Complex c2(2, 3);
+	//Complex c3 = c1 + c2;
 
-	int a = 5;
-	int b = 10;
-	
-	//calls swap with & 
-	swap(a, b);
+	//cout << c3 << endl;
 
-	//calls swap with *
-	swap(&a, &b);
+	//int a = 5;
+	//int b = 10;
+	//
+	////calls swap with & 
+	//swap(a, b);
+
+	////calls swap with *
+	//swap(&a, &b);
 
 	//Template<int> t(5);
 	//t.print();

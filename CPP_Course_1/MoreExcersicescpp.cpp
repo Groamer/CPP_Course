@@ -13,13 +13,16 @@ private:
 	int id;
 	string name;
 public:
-	Test() :id(0), name("name") {}
+	Test() {
+		id = 12;
+		name = "defaultName";
+	}
 
 	Test(int id, string name) : id(id), name(name) {}
 
-	Test(const Test& other) {
+	/*Test(const Test& other) {
 		*this = other;
-	}
+	}*/
 	const Test &operator= (const Test &other) {
 		id = other.id;
 		name = other.name;
@@ -63,9 +66,10 @@ int main() {
 	Test *test1 = new Test(13, "test1");
 	cout << *test1 << endl; 
 
-	Test test2 = Test(12, "test");
+	Test test2(12, "test2");
 	test2.print();
 
+	//Complex ctest;
 	//Complex c1(10, 12);
 	//Complex c2(2, 3);
 	//Complex c3 = c1 + c2;

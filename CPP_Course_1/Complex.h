@@ -13,6 +13,8 @@ namespace complexNumbers {
 
 		Complex(const Complex& other);
 
+		Complex() : real(0), imaginary(0) {}
+
 		double getReal() const { return real; }
 		double getImaginary() const { return imaginary; }
 

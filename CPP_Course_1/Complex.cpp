@@ -4,11 +4,11 @@
 
 using namespace complexNumbers;
 
-Complex & Complex::operator=(const Complex & other)
-= default;
+Complex::Complex(const Complex & other) = default;
 
+Complex & Complex::operator=(const Complex & other) = default;
 
-std::ostream &operator<<(std::ostream &out, const Complex &c) {
-	out << c.getReal();
-	return out;
+std::ostream & complexNumbers::operator<<(std::ostream & out, const Complex & other)
+{
+	return out << "real: " << other.real << "| Imaginary: " << other.imaginary;
 }

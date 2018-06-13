@@ -28,6 +28,40 @@ struct MinHeapNode {
 		this->freq = freq;
 	}
 };
+struct HuffmanInfo
+{
+	vector<char> characters;
+	vector<int> integers;
+};
+
+HuffmanInfo DeconstructString(string str)
+{
+	map<char, int> map1;
+
+	for (auto i = 0; i < str.size(); ++i)
+	{
+		char c = str.at(i);
+		auto j = map1.find(c);
+		if (j == map1.end())
+		{
+			map1.insert({ c, 1 });
+		}
+		else {
+			pair<char, int> pair = *j;
+			pair.second++;
+			map1.at(c) = pair.second;
+		}
+	}
+	HuffmanInfo info;
+
+	for (map<char, int>::iterator it = map1.begin(); it != map1.end(); ++it)
+	{
+		pair<char, int> combo = *it;
+		info.characters.push_back(combo.first);
+		info.integers.push_back(combo.second);
+	}
+	return info;
+}
 
 // For comparison of
 // two heap nodes (needed in min heap)

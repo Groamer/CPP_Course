@@ -154,10 +154,13 @@
     <ClInclude Include="Template.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractClasses.cpp" />
     <ClCompile Include="Complex.cpp" />
     <ClCompile Include="Exceptions.cpp" />
     <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="FileIOBin.cpp" />
+    <ClCompile Include="FunctionPointers.cpp" />
+    <ClCompile Include="Functors.cpp" />
     <ClCompile Include="Huffman.cpp" />
     <ClCompile Include="MoreExcersicescpp.cpp" />
     <ClCompile Include="MyException.cpp" />

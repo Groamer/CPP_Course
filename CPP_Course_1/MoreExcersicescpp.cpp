@@ -36,15 +36,47 @@ ostream& operator<<(ostream &os, const Test &test) {
 	return os << test.id << " : " << test.name;
 }
 
-int main5() {
+void swap(int *a, int *b) {
+	cout << *a << " + " << *b << endl;
+
+	int oldA = *a;
+	*a = *b;
+	*b = oldA;
+
+	cout << *a << " + " << *b << endl;
+}
+
+void swap(int &a, int &b) {
+	cout << a << " + " << b << endl;
+
+	int oldA = a;
+	a = b;
+	b = oldA;
+
+	cout << a << " + " << b << endl;
+}
+
+
+int main8() {
 	//Test test1(10, "Vincent");
 	//cout << test1 << endl;
 
-	//Complex c1(10, 12);
-	//Complex c2(2, 3);
-	//Complex c3 = c1 + c2;
+	Complex c1(10, 12);
+	Complex c2(2, 3);
+	Complex c3 = c1 + c2;
 
-	Template<int> t(5);
-	t.print();
+	cout << c3 << endl;
+
+	int a = 5;
+	int b = 10;
+	
+	//calls swap with & 
+	swap(a, b);
+
+	//calls swap with *
+	swap(&a, &b);
+
+	//Template<int> t(5);
+	//t.print();
 	return 0;
 }

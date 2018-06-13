@@ -18,6 +18,7 @@ void writeData(string data[])
 	outstream.close();
 }
 
+
 vector<string> readData() 
 {
 	fstream instream;

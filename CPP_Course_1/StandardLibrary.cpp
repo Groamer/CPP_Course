@@ -50,6 +50,7 @@ public:
 		name = other.name;
 		age = other.age;
 		marks = new vector<int>(*other.marks);
+		return *this;
 	}
 
 	bool operator< (const Person& other) const {
@@ -73,12 +74,18 @@ void TryConstructors() {
 	// assignment operator is called when the object is already there but is copied. like Test t2; t2 = t1
 
 	Person p1 = Person("Vincent", 22);
+	Person p2;
 
 	vector<int> allmarks = vector<int>(4, 4);
 	p1.marks = &allmarks;
 	//copy constructor is called
-	Person p2 = p1;
+	//Person p2 = p1;
+	p2 = p1;
+	
 
+	// if copy constructor is implemented, the p2 value will not have changed.
+	// However, if it is not implemented, the pointer of p2 will also point to the p1's pointer
+	// and change both p1 and p2 if you change either's pointer variable
 	p1.lowerVector();
 	
 }

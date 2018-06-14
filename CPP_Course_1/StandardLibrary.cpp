@@ -22,12 +22,14 @@ public:
 		age = 0; 
 	}
 
+	//copy constructor
 	Person(const Person& other)
 	{
 		name = other.name;
 		age = other.age;
 		marks =  new vector<int>(*other.marks);
 	}
+	~Person() = default;
 
 	Person(string name, int age)
 	{
@@ -40,11 +42,21 @@ public:
 		cout << name << " : " << age << endl;
 	}
 
-	/*bool operator< (const Person& other) const {
+	void lowerVector() {
+		marks->pop_back();
+	}
+
+	Person& operator=(const Person& other) {
+		name = other.name;
+		age = other.age;
+		marks = new vector<int>(*other.marks);
+	}
+
+	bool operator< (const Person& other) const {
 		if (name == other.name)
 			return age < other.age;
 		return name < other.name;
-	}*/
+	}
 
 	// mag private members gebruiken
 	friend bool comp(const Person& a, const Person& b);
@@ -57,14 +69,18 @@ bool comp(const Person& a, const Person& b) {
 }
 
 void TryConstructors() {
+	// copy constructor is called when the object does not "exist" yet. like Test t2 = t1;
+	// assignment operator is called when the object is already there but is copied. like Test t2; t2 = t1
 
 	Person p1 = Person("Vincent", 22);
 
 	vector<int> allmarks = vector<int>(4, 4);
 	p1.marks = &allmarks;
+	//copy constructor is called
 	Person p2 = p1;
 
-	allmarks = vector<int>(5, 5);
+	p1.lowerVector();
+	
 }
 
 
@@ -226,7 +242,7 @@ void TrySort() {
 	sort(persons.begin(), persons.end(), comp);
 }
 
-int main4()
+int main()
 {
 	//tryVector();
 	//MultidimentionalVector();
@@ -234,7 +250,7 @@ int main4()
 	//tryMap();
 	//CustomMap();
 	//Multimap();
-	//TryConstructors();
+	TryConstructors();
 	//trySet();
 
 	//werkt niet

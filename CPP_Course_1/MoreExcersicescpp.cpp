@@ -9,7 +9,7 @@ using namespace std;
 using namespace complexNumbers;
 
 
-int main() {
+int main4() {
 	//CppTestClass *test1 = new CppTestClass(13, "test1");
 	//cout << *test1 << endl; 
 

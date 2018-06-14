@@ -1,11 +1,11 @@
-// C++ program for Huffman Coding
-#pragma once
 #include "stdafx.h"
+#pragma once
 //#include <bits/stdc++.h>
 #include <iostream>
 #include <queue>
 #include <sstream>
 #include <map>
+#include <vector>
 using namespace std;
 
 //https://planetcalc.com/2481/

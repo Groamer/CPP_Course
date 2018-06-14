@@ -3,26 +3,26 @@
 
 using namespace std;
 
-struct Test
+struct FunctorTest
 {
 	virtual bool operator()(string &text) = 0;
 };
 
-struct MatchTest : Test
+struct MatchTest : FunctorTest
 {
 	virtual bool operator()(string &text) {
 		return text == "lion";
 	}
 };
 
-struct MyMatchTest : Test
+struct MyMatchTest : FunctorTest
 {
 	virtual bool operator()(string &text) {
 		return text == "text";
 	}
 };
 
-void check(string text, Test &t)
+void check(string text, FunctorTest &t)
 {
 	if (t(text))
 	{
